@@ -4,14 +4,16 @@ const mobileNav = document.querySelector(".mobile-nav");
 menuToggle.addEventListener("click", () => {
   const isOpen = mobileNav.classList.toggle("open");
   menuToggle.setAttribute("aria-expanded", isOpen);
-  menuToggle.textContent = isOpen ? "Close" : "Menu";
+  menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  menuToggle.querySelector(".menu-label").textContent = isOpen ? "Close" : "Menu";
 });
 
 document.querySelectorAll(".mobile-nav a").forEach((link) => {
   link.addEventListener("click", () => {
     mobileNav.classList.remove("open");
     menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.textContent = "Menu";
+    menuToggle.setAttribute("aria-label", "Open menu");
+    menuToggle.querySelector(".menu-label").textContent = "Menu";
   });
 });
 
@@ -37,7 +39,7 @@ if (form && message) {
     "(prefers-reduced-motion: reduce)",
   ).matches;
   const selector =
-    "main div, .hero-content, header, footer, .story-images > *, .gallery-grid figure";
+    "main div, .hero-content, footer, .story-images > *, .gallery-grid figure";
   const elements = Array.from(document.querySelectorAll(selector));
   if (elements.length === 0) return;
 

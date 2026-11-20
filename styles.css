@@ -986,14 +986,57 @@ footer p {
     display: none;
   }
   .menu-toggle {
+    align-items: center;
     background: none;
     border: 0;
     color: var(--ink);
-    display: block;
+    display: inline-flex;
     font-family: var(--mono);
     font-size: 10px;
+    gap: 10px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+  }
+  .menu-toggle:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 5px;
+  }
+  .menu-icon {
+    background: var(--ink);
+    display: block;
+    height: 1px;
+    position: relative;
+    transition: background 0.2s;
+    width: 18px;
+  }
+  .menu-icon::before,
+  .menu-icon::after {
+    background: var(--ink);
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    transition:
+      top 0.2s,
+      transform 0.2s;
+    width: 18px;
+  }
+  .menu-icon::before {
+    top: -5px;
+  }
+  .menu-icon::after {
+    top: 5px;
+  }
+  .menu-toggle[aria-expanded="true"] .menu-icon {
+    background: transparent;
+  }
+  .menu-toggle[aria-expanded="true"] .menu-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .menu-toggle[aria-expanded="true"] .menu-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
   }
   .mobile-nav {
     background: var(--cream);
