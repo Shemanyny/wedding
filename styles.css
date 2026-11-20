@@ -85,6 +85,10 @@ img {
   color: var(--coral);
   font-size: 15px;
 }
+.menu-toggle,
+.mobile-nav {
+  display: none;
+}
 .hero {
   height: calc(100vh - 78px);
   min-height: 620px;
@@ -975,30 +979,111 @@ footer p {
 }
 @media (max-width: 700px) {
   .site-header {
+    position: sticky;
     gap: 12px;
-    height: auto;
-    min-height: 68px;
+    height: 68px;
     padding: 10px 5vw;
   }
   .monogram {
     flex: 0 0 auto;
   }
   .desktop-nav {
+    display: none;
+  }
+  .menu-toggle {
+    align-items: center;
+    background: transparent;
+    border: 0;
+    color: var(--ink);
+    cursor: pointer;
+    display: inline-flex;
+    height: 44px;
+    justify-content: center;
+    margin-left: auto;
+    padding: 10px;
+    width: 44px;
+  }
+  .menu-toggle:focus-visible {
+    outline: 2px solid var(--coral);
+    outline-offset: 2px;
+  }
+  .menu-icon {
+    background: var(--ink);
+    display: block;
+    height: 1px;
+    position: relative;
+    transition: background 0.2s;
+    width: 20px;
+  }
+  .menu-icon::before,
+  .menu-icon::after {
+    background: var(--ink);
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    transition:
+      top 0.2s,
+      transform 0.2s;
+    width: 20px;
+  }
+  .menu-icon::before {
+    top: -6px;
+  }
+  .menu-icon::after {
+    top: 6px;
+  }
+  .menu-toggle[aria-expanded="true"] .menu-icon {
+    background: transparent;
+  }
+  .menu-toggle[aria-expanded="true"] .menu-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  .menu-toggle[aria-expanded="true"] .menu-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+  .mobile-nav {
+    background: var(--cream);
+    box-shadow: 0 16px 24px rgba(32, 32, 28, 0.12);
     display: flex;
-    flex: 1 1 0;
-    flex-wrap: wrap;
-    font-size: clamp(8px, 2.4vw, 10px);
-    gap: 4px clamp(7px, 2vw, 12px);
-    justify-content: flex-end;
-    letter-spacing: 0.04em;
-    line-height: 1.3;
-    min-width: 0;
+    flex-direction: column;
+    gap: 0;
+    left: 0;
+    max-height: calc(100dvh - 68px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 8px 7vw 18px;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease,
+      visibility 0.2s;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 55;
   }
-  .desktop-nav a {
-    white-space: nowrap;
+  .mobile-nav.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    visibility: visible;
   }
-  .desktop-nav span {
+  .mobile-nav a {
+    border-bottom: 1px solid var(--line);
+    font-family: var(--mono);
     font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 14px 0;
+    text-transform: uppercase;
+  }
+  .mobile-nav a:last-child {
+    border-bottom: 0;
   }
   .hero {
     height: calc(100svh - 78px);
