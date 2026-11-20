@@ -15,43 +15,6 @@ document.querySelectorAll(".mobile-nav a").forEach((link) => {
   });
 });
 
-const calendarButton = document.querySelector("#add-to-calendar");
-const calendarMessage = document.querySelector("#calendar-message");
-
-if (calendarButton && calendarMessage) {
-  calendarButton.addEventListener("click", () => {
-    const eventStart = "20270424T160000";
-    const eventEnd = "20270424T220000";
-    const calendarEvent = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//Deborah and Oluwaseyifunmi//Wedding//EN",
-      "BEGIN:VEVENT",
-      `DTSTART:${eventStart}`,
-      `DTEND:${eventEnd}`,
-      "SUMMARY:Deborah & Oluwaseyifunmi - Wedding Celebration",
-      "LOCATION:Ijebu Igbo\\, Ogun State",
-      "DESCRIPTION:Join us to celebrate the wedding of Deborah and Oluwaseyifunmi.",
-      "END:VEVENT",
-      "END:VCALENDAR",
-    ].join("\r\n");
-    const file = new Blob([calendarEvent], {
-      type: "text/calendar;charset=utf-8",
-    });
-    const downloadUrl = URL.createObjectURL(file);
-    const downloadLink = document.createElement("a");
-
-    downloadLink.href = downloadUrl;
-    downloadLink.download = "deborah-and-oluwaseyifunmi-wedding.ics";
-    document.body.append(downloadLink);
-    downloadLink.click();
-    downloadLink.remove();
-    window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
-    calendarMessage.textContent =
-      "Your calendar invite is ready to add to your calendar.";
-  });
-}
-
 const form = document.querySelector("#rsvp-form");
 const message = document.querySelector(".form-message");
 

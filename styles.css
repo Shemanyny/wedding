@@ -570,24 +570,22 @@ h2 em {
 .detail-list b {
   font-size: 15px;
 }
-.save-date {
-  background: #eee7da;
+.faqs {
+  background: #f7f2e9;
 }
-.save-date-layout {
-  align-items: center;
-  display: grid;
-  gap: 10vw;
-  grid-template-columns: 1fr 0.9fr;
-  margin-top: 65px;
+.faqs-heading {
+  align-items: end;
+  display: flex;
+  justify-content: space-between;
+  margin: 65px 0 45px;
 }
-.save-date-copy {
-  max-width: 490px;
+.faqs-heading p {
+  color: #6f6b63;
+  font-size: 15px;
+  margin: 0 0 4px;
+  max-width: 340px;
 }
-.save-date-copy .eyebrow {
-  color: var(--coral);
-  margin: 0 0 18px;
-}
-.save-date h2 {
+.faqs h2 {
   font-family: var(--serif);
   font-size: clamp(42px, 5.5vw, 79px);
   font-weight: 600;
@@ -595,112 +593,49 @@ h2 em {
   line-height: 0.98;
   margin: 0;
 }
-.save-date h2 em {
+.faqs h2 em {
   color: var(--coral);
 }
-.save-date-copy > p:not(.eyebrow, .calendar-message) {
-  color: #6f6b63;
-  font-size: 15px;
-  margin: 24px 0;
-  max-width: 390px;
+.faq-list {
+  border-top: 1px solid var(--line);
 }
-.calendar-button {
+.faq-item {
+  border-bottom: 1px solid var(--line);
+}
+.faq-item summary {
   align-items: center;
-  background: var(--ink);
-  border: 0;
-  color: #fff;
   cursor: pointer;
-  display: inline-flex;
-  font-family: var(--mono);
-  font-size: 11px;
-  gap: 24px;
+  display: flex;
+  font-family: var(--serif);
+  font-size: 20px;
   justify-content: space-between;
-  letter-spacing: 0.08em;
-  padding: 16px 20px;
-  text-transform: uppercase;
-  transition: background 0.2s;
+  list-style: none;
+  padding: 22px 4px;
 }
-.calendar-button:hover {
-  background: #393932;
-}
-.calendar-button:focus-visible {
-  outline: 2px solid var(--coral);
-  outline-offset: 4px;
-}
-.calendar-button span {
-  color: #f1a98f;
-  font-size: 18px;
-}
-.calendar-message {
-  color: #6f6b63;
-  font-family: var(--mono);
-  font-size: 11px;
-  margin: 12px 0 0;
-}
-.calendar-message:empty {
+.faq-item summary::-webkit-details-marker {
   display: none;
 }
-.date-card {
-  background:
-    radial-gradient(ellipse at 100% 100%, rgba(226, 111, 86, 0.22), transparent 50%),
-    var(--ink);
-  color: #f7f2e9;
-  min-height: 370px;
-  overflow: hidden;
-  padding: clamp(24px, 4vw, 48px);
-  position: relative;
+.faq-item summary::after {
+  color: var(--coral);
+  content: "+";
+  flex: 0 0 auto;
+  font-family: var(--sans);
+  font-size: 25px;
+  font-weight: 400;
+  margin-left: 20px;
 }
-.date-card-top,
-.date-card-bottom {
-  align-items: center;
-  display: flex;
-  font-family: var(--mono);
-  font-size: 10px;
-  justify-content: space-between;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.faq-item[open] summary::after {
+  content: "−";
 }
-.date-card-top {
-  border-bottom: 1px solid rgba(247, 242, 233, 0.28);
-  padding-bottom: 15px;
+.faq-item summary:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
 }
-.date-card-top span:last-child {
-  color: #f1a98f;
-  font-family: var(--serif);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 0;
-}
-.date-card-month {
-  color: #f1a98f;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  margin: 32px 0 0;
-  text-transform: uppercase;
-}
-.date-card-day {
-  font-family: var(--serif);
-  font-size: clamp(120px, 17vw, 210px);
-  letter-spacing: -0.1em;
-  line-height: 0.95;
-  margin: 0 0 24px -10px;
-  position: relative;
-}
-.date-card-bottom {
-  border-top: 1px solid rgba(247, 242, 233, 0.28);
-  padding-top: 15px;
-  position: relative;
-}
-.date-card-flower {
-  color: rgba(226, 111, 86, 0.32);
-  font-size: 120px;
-  line-height: 1;
-  position: absolute;
-  right: -15px;
-  top: 130px;
-  transform: rotate(-15deg);
-  user-select: none;
+.faq-item p {
+  color: #6f6b63;
+  font-size: 14px;
+  margin: -4px 44px 22px 4px;
+  max-width: 650px;
 }
 .rsvp {
   background: var(--coral);
@@ -1130,7 +1065,7 @@ footer p {
   .details h2,
   .rsvp h2,
   .scripture h2,
-  .save-date h2 {
+  .faqs h2 {
     font-size: 52px;
   }
   .scripture-heading {
@@ -1149,20 +1084,19 @@ footer p {
   .scripture-card p {
     font-size: 18px;
   }
-  .save-date-layout {
-    margin-top: 50px;
+  .faqs-heading {
+    display: block;
+    margin: 50px 0 35px;
   }
-  .date-card {
-    min-height: 320px;
-    padding: 26px;
+  .faqs-heading p {
+    margin-top: 24px;
   }
-  .date-card-day {
-    font-size: clamp(120px, 35vw, 170px);
+  .faq-item summary {
+    font-size: 18px;
+    padding: 19px 2px;
   }
-  .date-card-bottom {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 8px;
+  .faq-item p {
+    margin-right: 28px;
   }
   .story-copy {
     margin-top: 35px;
@@ -1241,10 +1175,6 @@ footer p {
     display: block;
   }
   .scripture-grid {
-    grid-template-columns: 1fr;
-  }
-  .save-date-layout {
-    gap: 48px;
     grid-template-columns: 1fr;
   }
   .details-photo {
