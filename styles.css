@@ -570,73 +570,6 @@ h2 em {
 .detail-list b {
   font-size: 15px;
 }
-.faqs {
-  background: #f7f2e9;
-}
-.faqs-heading {
-  align-items: end;
-  display: flex;
-  justify-content: space-between;
-  margin: 65px 0 45px;
-}
-.faqs-heading p {
-  color: #6f6b63;
-  font-size: 15px;
-  margin: 0 0 4px;
-  max-width: 340px;
-}
-.faqs h2 {
-  font-family: var(--serif);
-  font-size: clamp(42px, 5.5vw, 79px);
-  font-weight: 600;
-  letter-spacing: -0.06em;
-  line-height: 0.98;
-  margin: 0;
-}
-.faqs h2 em {
-  color: var(--coral);
-}
-.faq-list {
-  border-top: 1px solid var(--line);
-}
-.faq-item {
-  border-bottom: 1px solid var(--line);
-}
-.faq-item summary {
-  align-items: center;
-  cursor: pointer;
-  display: flex;
-  font-family: var(--serif);
-  font-size: 20px;
-  justify-content: space-between;
-  list-style: none;
-  padding: 22px 4px;
-}
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-.faq-item summary::after {
-  color: var(--coral);
-  content: "+";
-  flex: 0 0 auto;
-  font-family: var(--sans);
-  font-size: 25px;
-  font-weight: 400;
-  margin-left: 20px;
-}
-.faq-item[open] summary::after {
-  content: "−";
-}
-.faq-item summary:focus-visible {
-  outline: 2px solid var(--coral);
-  outline-offset: 3px;
-}
-.faq-item p {
-  color: #6f6b63;
-  font-size: 14px;
-  margin: -4px 44px 22px 4px;
-  max-width: 650px;
-}
 .rsvp {
   background: var(--coral);
   color: #fff;
@@ -1129,8 +1062,7 @@ footer p {
   .weekend h2,
   .details h2,
   .rsvp h2,
-  .scripture h2,
-  .faqs h2 {
+  .scripture h2 {
     font-size: 52px;
   }
   .scripture-heading {
@@ -1148,20 +1080,6 @@ footer p {
   }
   .scripture-card p {
     font-size: 18px;
-  }
-  .faqs-heading {
-    display: block;
-    margin: 50px 0 35px;
-  }
-  .faqs-heading p {
-    margin-top: 24px;
-  }
-  .faq-item summary {
-    font-size: 18px;
-    padding: 19px 2px;
-  }
-  .faq-item p {
-    margin-right: 28px;
   }
   .story-copy {
     margin-top: 35px;
