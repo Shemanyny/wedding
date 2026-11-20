@@ -13,6 +13,7 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   margin: 0;
@@ -21,6 +22,8 @@ body {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.5;
+  min-width: 0;
+  overflow-x: hidden;
 }
 a {
   color: inherit;
@@ -31,6 +34,7 @@ img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  max-width: 100%;
 }
 .site-header {
   align-items: center;
@@ -109,7 +113,9 @@ img {
 .hero-content {
   bottom: 15%;
   left: 10%;
+  max-width: calc(100% - 20%);
   position: absolute;
+  right: 10%;
 }
 .eyebrow {
   font-family: var(--mono);
@@ -457,7 +463,11 @@ h2 em {
 }
 .details-photo {
   aspect-ratio: 4/5;
+  overflow: hidden;
   position: relative;
+}
+.details-photo img {
+  height: 100%;
 }
 .photo-note {
   bottom: 22px;
