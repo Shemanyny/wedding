@@ -874,7 +874,7 @@ footer p {
     top: 68px;
     transform: translateY(-150%);
     transition: transform 0.3s ease;
-    z-index: -1;
+    z-index: 55;
   }
   .mobile-nav.open {
     transform: translateY(0);
@@ -891,10 +891,14 @@ footer p {
   .hero-content {
     bottom: 15%;
     left: 7vw;
+    max-width: 86vw;
+    right: 7vw;
   }
   .hero h1 {
-    font-size: 76px;
+    font-size: clamp(38px, 10.5vw, 52px);
+    line-height: 0.88;
     margin: 18px 0 30px;
+    overflow-wrap: anywhere;
   }
   .hero-meta {
     align-items: flex-start;
@@ -995,6 +999,60 @@ footer p {
   }
   footer p {
     order: 3;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 900px) {
+  .details {
+    display: block;
+  }
+  .details-photo {
+    aspect-ratio: 16 / 10;
+    margin-bottom: 65px;
+  }
+  .details-photo img {
+    height: 100%;
+  }
+  .details-content h2 {
+    margin: 45px 0;
+  }
+  .rsvp-grid,
+  .stay-grid {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-inner {
+    max-width: 100%;
+    gap: 7px;
+    padding: 8px;
+  }
+  .countdown .count {
+    font-size: 18px;
+  }
+  .countdown .label {
+    font-size: 8px;
+  }
+  .hero-meta {
+    max-width: 100%;
+  }
+  .weekend-heading h2,
+  .details h2,
+  .gallery h2 {
+    font-size: clamp(38px, 13vw, 52px);
+  }
+  .event-row {
+    grid-template-columns: 42px minmax(0, 1fr) 16px;
+  }
+  .event-row h3 {
+    overflow-wrap: anywhere;
+  }
+  .profile-card {
+    min-width: 0;
+  }
+  footer {
+    text-align: left;
   }
 }
 
