@@ -85,10 +85,6 @@ img {
   color: var(--coral);
   font-size: 15px;
 }
-.menu-toggle,
-.mobile-nav {
-  display: none;
-}
 .hero {
   height: calc(100vh - 78px);
   min-height: 620px;
@@ -979,92 +975,33 @@ footer p {
 }
 @media (max-width: 700px) {
   .site-header {
-    height: 68px;
-    padding: 0 7vw;
+    gap: 12px;
+    height: auto;
+    min-height: 68px;
+    padding: 10px 5vw;
+  }
+  .monogram {
+    flex: 0 0 auto;
   }
   .desktop-nav {
-    display: none;
-  }
-  .menu-toggle {
-    align-items: center;
-    background: none;
-    border: 0;
-    color: var(--ink);
-    display: inline-flex;
-    font-family: var(--mono);
-    font-size: 10px;
-    gap: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  .menu-toggle:focus-visible {
-    outline: 2px solid var(--coral);
-    outline-offset: 5px;
-  }
-  .menu-icon {
-    background: var(--ink);
-    display: block;
-    height: 1px;
-    position: relative;
-    transition: background 0.2s;
-    width: 18px;
-  }
-  .menu-icon::before,
-  .menu-icon::after {
-    background: var(--ink);
-    content: "";
-    height: 1px;
-    left: 0;
-    position: absolute;
-    transition:
-      top 0.2s,
-      transform 0.2s;
-    width: 18px;
-  }
-  .menu-icon::before {
-    top: -5px;
-  }
-  .menu-icon::after {
-    top: 5px;
-  }
-  .menu-toggle[aria-expanded="true"] .menu-icon {
-    background: transparent;
-  }
-  .menu-toggle[aria-expanded="true"] .menu-icon::before {
-    top: 0;
-    transform: rotate(45deg);
-  }
-  .menu-toggle[aria-expanded="true"] .menu-icon::after {
-    top: 0;
-    transform: rotate(-45deg);
-  }
-  .mobile-nav {
-    background: var(--cream);
     display: flex;
-    flex-direction: column;
-    gap: 22px;
-    left: 0;
-    max-height: calc(100dvh - 68px);
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    padding: 18px 7vw 25px;
-    position: absolute;
-    right: 0;
-    top: 68px;
-    transform: translateY(-110%);
-    transition: transform 0.3s ease;
-    z-index: 55;
+    flex: 1 1 0;
+    flex-wrap: wrap;
+    font-size: clamp(8px, 2.4vw, 10px);
+    gap: 4px clamp(7px, 2vw, 12px);
+    justify-content: flex-end;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    min-width: 0;
   }
-  .mobile-nav.open {
-    transform: translateY(0);
+  .desktop-nav a {
+    white-space: nowrap;
   }
-  .mobile-nav a {
-    font-family: var(--mono);
-    font-size: 11px;
-    text-transform: uppercase;
+  .desktop-nav span {
+    font-size: 12px;
   }
   .hero {
-    height: calc(100svh - 68px);
+    height: calc(100svh - 78px);
     min-height: 560px;
   }
   .hero-content {

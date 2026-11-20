@@ -1,22 +1,3 @@
-const menuToggle = document.querySelector(".menu-toggle");
-const mobileNav = document.querySelector(".mobile-nav");
-
-menuToggle.addEventListener("click", () => {
-  const isOpen = mobileNav.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", isOpen);
-  menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
-  menuToggle.querySelector(".menu-label").textContent = isOpen ? "Close" : "Menu";
-});
-
-document.querySelectorAll(".mobile-nav a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileNav.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open menu");
-    menuToggle.querySelector(".menu-label").textContent = "Menu";
-  });
-});
-
 const form = document.querySelector("#rsvp-form");
 const message = document.querySelector(".form-message");
 
